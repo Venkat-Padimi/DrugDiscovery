@@ -1,0 +1,31 @@
+{
+  "esearch_alzheimer_success": {
+    "header": {
+      "type": "esearch",
+      "version": "0.1"
+    },
+    "esearchresult": {
+      "count": "4520",
+      "retmax": "5",
+      "retstart": "0",
+      "idlist": ["31234567", "32345678", "33456789", "34567890", "35678901"],
+      "translationset": [],
+      "querytranslation": "Alzheimer disease[MeSH Terms] AND therapeutic target"
+    }
+  },
+  "esearch_empty": {
+    "header": {
+      "type": "esearch",
+      "version": "0.1"
+    },
+    "esearchresult": {
+      "count": "0",
+      "retmax": "0",
+      "retstart": "0",
+      "idlist": [],
+      "translationset": [],
+      "querytranslation": "nonexistentdiseasequery12345"
+    }
+  },
+  "efetch_xml_sample": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE PubmedArticleSet PUBLIC \"-//NLM//DTD PubMedArticle, 1st January 2024//EN\" \"https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_240101.dtd\">\n<PubmedArticleSet>\n  <PubmedArticle>\n    <MedlineCitation Status=\"MEDLINE\" Owner=\"NLM\">\n      <PMID Version=\"1\">31234567</PMID>\n      <Article PubModel=\"Print-Electronic\">\n        <Journal>\n          <JournalIssue CitedMedium=\"Internet\">\n            <Volume>570</Volume>\n            <Issue>7760</Issue>\n            <PubDate>\n              <Year>2019</Year>\n              <Month>Jun</Month>\n            </PubDate>\n          </JournalIssue>\n          <Title>Nature</Title>\n          <ISOAbbreviation>Nature</ISOAbbreviation>\n        </Journal>\n        <ArticleTitle>Microglial TREM2 activation restores cognitive deficits and reduces amyloid pathology.</ArticleTitle>\n        <Abstract>\n          <AbstractText Label=\"BACKGROUND\">Microglial dysfunction is a hallmark of Alzheimer's disease pathogenesis.</AbstractText>\n          <AbstractText Label=\"RESULTS\">Here we demonstrate that activating TREM2 via monoclonal agonist antibodies enhances microglial phagocytosis of amyloid beta peptide and reduces plaque deposition in 5xFAD mice.</AbstractText>\n          <AbstractText Label=\"CONCLUSIONS\">Targeting TREM2 represents a promising immunotherapeutic approach for neurodegeneration.</AbstractText>\n        </Abstract>\n        <AuthorList CompleteYN=\"Y\">\n          <Author ValidYN=\"Y\">\n            <LastName>Smith</LastName>\n            <ForeName>John</ForeName>\n            <Initials>J</Initials>\n          </Author>\n          <Author ValidYN=\"Y\">\n            <LastName>Doe</LastName>\n            <ForeName>Jane</ForeName>\n            <Initials>J</Initials>\n          </Author>\n          <Author ValidYN=\"Y\">\n            <LastName>Williams</LastName>\n            <ForeName>Robert</ForeName>\n            <Initials>R</Initials>\n          </Author>\n        </AuthorList>\n        <PublicationTypeList>\n          <PublicationType UI=\"D016428\">Journal Article</PublicationType>\n        </PublicationTypeList>\n      </Article>\n      <MedlineJournalInfo>\n        <MedlineTA>Nature</MedlineTA>\n        <NlmUniqueID>0410462</NlmUniqueID>\n      </MedlineJournalInfo>\n      <MeshHeadingList>\n        <MeshHeading>\n          <DescriptorName UI=\"D000544\" MajorTopicYN=\"Y\">Alzheimer Disease</DescriptorName>\n        </MeshHeading>\n        <MeshHeading>\n          <DescriptorName UI=\"D000682\" MajorTopicYN=\"Y\">Amyloid beta-Peptides</DescriptorName>\n        </MeshHeading>\n        <MeshHeading>\n          <DescriptorName UI=\"D017628\" MajorTopicYN=\"Y\">Microglia</DescriptorName>\n        </MeshHeading>\n        <MeshHeading>\n          <DescriptorName UI=\"D000071198\" MajorTopicYN=\"Y\">Receptors, Immunologic</DescriptorName>\n        </MeshHeading>\n      </MeshHeadingList>\n    </MedlineCitation>\n    <PubmedData>\n      <ArticleIdList>\n        <ArticleId IdType=\"pubmed\">31234567</ArticleId>\n        <ArticleId IdType=\"pmc\">PMC6589012</ArticleId>\n        <ArticleId IdType=\"doi\">10.1038/s41586-019-1234-5</ArticleId>\n      </ArticleIdList>\n    </PubmedData>\n  </PubmedArticle>\n  <PubmedArticle>\n    <MedlineCitation Status=\"MEDLINE\" Owner=\"NLM\">\n      <PMID Version=\"1\">32345678</PMID>\n      <Article PubModel=\"Print\">\n        <Journal>\n          <JournalIssue CitedMedium=\"Internet\">\n            <Volume>368</Volume>\n            <Issue>6490</Issue>\n            <PubDate>\n              <Year>2020</Year>\n              <Month>Apr</Month>\n            </PubDate>\n          </JournalIssue>\n          <Title>Science</Title>\n          <ISOAbbreviation>Science</ISOAbbreviation>\n        </Journal>\n        <ArticleTitle>BACE1 inhibition and amyloid processing in clinical development.</ArticleTitle>\n        <Abstract>\n          <AbstractText>Small molecule inhibitors of beta-secretase 1 (BACE1) substantially decrease amyloid-beta synthesis in cerebrospinal fluid, though dosing windows must balance safety liabilities.</AbstractText>\n        </Abstract>\n        <AuthorList CompleteYN=\"Y\">\n          <Author ValidYN=\"Y\">\n            <LastName>Johnson</LastName>\n            <ForeName>Katherine</ForeName>\n            <Initials>K</Initials>\n          </Author>\n        </AuthorList>\n      </Article>\n      <MedlineJournalInfo>\n        <MedlineTA>Science</MedlineTA>\n        <NlmUniqueID>0404511</NlmUniqueID>\n      </MedlineJournalInfo>\n      <MeshHeadingList>\n        <MeshHeading>\n          <DescriptorName UI=\"D000544\" MajorTopicYN=\"Y\">Alzheimer Disease</DescriptorName>\n        </MeshHeading>\n        <MeshHeading>\n          <DescriptorName UI=\"D053138\" MajorTopicYN=\"Y\">Amyloid Precursor Protein Secretases</DescriptorName>\n        </MeshHeading>\n      </MeshHeadingList>\n    </MedlineCitation>\n    <PubmedData>\n      <ArticleIdList>\n        <ArticleId IdType=\"pubmed\">32345678</ArticleId>\n        <ArticleId IdType=\"doi\">10.1126/science.abc1234</ArticleId>\n      </ArticleIdList>\n    </PubmedData>\n  </PubmedArticle>\n</PubmedArticleSet>"
+}

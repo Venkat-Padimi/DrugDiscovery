@@ -1,0 +1,10 @@
+disease_association: 0.25
+genetic_evidence: 0.20
+target_tractability: 0.20
+literature_evidence: 0.15
+experimental_validation: 0.10
+safety_profile: 0.10
+
+# Penalty configurations
+contradiction_penalty_min: 15.0
+contradiction_penalty_max: 30.0

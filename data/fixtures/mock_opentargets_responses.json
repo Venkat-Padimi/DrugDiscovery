@@ -1,0 +1,132 @@
+{
+  "disease_search_alzheimer": {
+    "data": {
+      "search": {
+        "totalHits": 1,
+        "hits": [
+          {
+            "id": "EFO_0000249",
+            "name": "Alzheimer's disease",
+            "entity": "disease",
+            "description": "A progressive neurodegenerative disease characterized by cognitive deterioration."
+          }
+        ]
+      }
+    }
+  },
+  "disease_search_empty": {
+    "data": {
+      "search": {
+        "totalHits": 0,
+        "hits": []
+      }
+    }
+  },
+  "associated_targets_alzheimer": {
+    "data": {
+      "disease": {
+        "id": "EFO_0000249",
+        "name": "Alzheimer's disease",
+        "associatedTargets": {
+          "count": 3,
+          "rows": [
+            {
+              "target": {
+                "id": "ENSG00000095977",
+                "approvedSymbol": "TREM2",
+                "approvedName": "triggering receptor expressed on myeloid cells 2"
+              },
+              "score": 0.88,
+              "datatypeScores": [
+                { "id": "genetic_association", "score": 0.95 },
+                { "id": "literature", "score": 0.82 },
+                { "id": "animal_model", "score": 0.70 }
+              ]
+            },
+            {
+              "target": {
+                "id": "ENSG00000186318",
+                "approvedSymbol": "BACE1",
+                "approvedName": "beta-secretase 1"
+              },
+              "score": 0.82,
+              "datatypeScores": [
+                { "id": "genetic_association", "score": 0.65 },
+                { "id": "literature", "score": 0.90 },
+                { "id": "known_drug", "score": 0.85 }
+              ]
+            },
+            {
+              "target": {
+                "id": "ENSG00000142192",
+                "approvedSymbol": "APP",
+                "approvedName": "amyloid beta precursor protein"
+              },
+              "score": 0.91,
+              "datatypeScores": [
+                { "id": "genetic_association", "score": 0.98 },
+                { "id": "literature", "score": 0.95 },
+                { "id": "animal_model", "score": 0.88 }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "target_tractability_trem2": {
+    "data": {
+      "target": {
+        "id": "ENSG00000095977",
+        "approvedSymbol": "TREM2",
+        "tractability": [
+          {
+            "modality": "SM",
+            "id": "Discovery Precedence",
+            "value": true
+          },
+          {
+            "modality": "SM",
+            "id": "High-Confidence Pocket",
+            "value": true
+          },
+          {
+            "modality": "AB",
+            "id": "Clinical Precedence",
+            "value": true
+          },
+          {
+            "modality": "PR",
+            "id": "Literature Precedence",
+            "value": false
+          }
+        ]
+      }
+    }
+  },
+  "target_tractability_bace1": {
+    "data": {
+      "target": {
+        "id": "ENSG00000186318",
+        "approvedSymbol": "BACE1",
+        "tractability": [
+          {
+            "modality": "SM",
+            "id": "Clinical Precedence",
+            "value": true
+          },
+          {
+            "modality": "SM",
+            "id": "Discovery Precedence",
+            "value": true
+          },
+          {
+            "modality": "AB",
+            "id": "Predicted Tractable",
+            "value": false
+          }
+        ]
+      }
+    }
+  }
+}

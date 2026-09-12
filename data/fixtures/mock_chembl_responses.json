@@ -1,0 +1,66 @@
+{
+  "target_search_bace1": {
+    "targets": [
+      {
+        "target_chembl_id": "CHEMBL2487",
+        "pref_name": "Beta-secretase 1",
+        "target_type": "SINGLE PROTEIN",
+        "organism": "Homo sapiens"
+      }
+    ]
+  },
+  "target_search_trem2": {
+    "targets": [
+      {
+        "target_chembl_id": "CHEMBL4822",
+        "pref_name": "Triggering receptor expressed on myeloid cells 2",
+        "target_type": "SINGLE PROTEIN",
+        "organism": "Homo sapiens"
+      }
+    ]
+  },
+  "target_search_empty": {
+    "targets": []
+  },
+  "activities_bace1": {
+    "activities": [
+      {
+        "activity_id": 18234567,
+        "assay_chembl_id": "CHEMBL1928374",
+        "molecule_chembl_id": "CHEMBL3545112",
+        "molecule_pref_name": "VERUBECESTAT",
+        "canonical_smiles": "CS(=O)(=O)c1ccc(cc1)C1(N=C(N)c2c1cc(F)cc2)c1ccc(F)cn1",
+        "standard_type": "IC50",
+        "standard_value": "2.2",
+        "standard_units": "nM",
+        "target_chembl_id": "CHEMBL2487"
+      },
+      {
+        "activity_id": 18234568,
+        "assay_chembl_id": "CHEMBL1928375",
+        "molecule_chembl_id": "CHEMBL3123456",
+        "molecule_pref_name": "ATABECESTAT",
+        "canonical_smiles": "CC1(c2cc(F)ccc2F)N=C(N)c2c1cc(F)cc2",
+        "standard_type": "IC50",
+        "standard_value": "12.5",
+        "standard_units": "nM",
+        "target_chembl_id": "CHEMBL2487"
+      }
+    ]
+  },
+  "activities_trem2": {
+    "activities": [
+      {
+        "activity_id": 19123456,
+        "assay_chembl_id": "CHEMBL2837465",
+        "molecule_chembl_id": "CHEMBL4298123",
+        "molecule_pref_name": "TREM2-LIGAND-1",
+        "canonical_smiles": "CC(C)Cc1ccc(cc1)C(C)C(=O)O",
+        "standard_type": "Ki",
+        "standard_value": "45.0",
+        "standard_units": "nM",
+        "target_chembl_id": "CHEMBL4822"
+      }
+    ]
+  }
+}
