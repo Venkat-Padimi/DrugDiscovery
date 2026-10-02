@@ -227,14 +227,44 @@ DrugDiscovery/
 │   │   ├── reporter.py             # Research report generator (Markdown and JSON)
 │   │   ├── scoring.py              # Deterministic target scoring engine
 │   │   ├── screening.py            # In silico compound screening abstraction
+│   │   ├── graph_builder.py        # React Flow discovery graph builder from state
+│   │   ├── reporter.py             # Publication report generator (Markdown & JSON)
+│   │   ├── scoring.py              # 6-factor deterministic scoring and clamping
+│   │   ├── screening.py            # Computational screening abstraction and mock
 │   │   └── workflow.py             # LangGraph state graph assembly and runner
 │   │
-│   └── ui/                         # Streamlit presentation layer
+│   └── ui/                         # Streamlit legacy fallback presentation layer
 │       ├── app.py                  # Streamlit dashboard layout, tabs, and event handlers
 │       ├── helpers.py              # Data formatting, preset queries, and audit filtering
 │       └── visualizations.py       # Plotly charts (radar, bar, donut, bioactivity)
 │
-└── tests/                          # Automated test suite (122 tests)
+├── frontend/                       # Primary React + TypeScript Research Workstation
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Navbar.tsx          # Biomedical header with session badge & tabs
+│   │   │   ├── Plot.tsx            # Plotly ESM factory wrapper
+│   │   │   ├── nodes/              # Custom React Flow graph nodes
+│   │   │   │   ├── DiseaseNode.tsx
+│   │   │   │   ├── TargetNode.tsx
+│   │   │   │   ├── EvidenceNode.tsx
+│   │   │   │   ├── DruggabilityNode.tsx
+│   │   │   │   └── CompoundNode.tsx
+│   │   │   └── views/              # 8 Primary workstation views
+│   │   │       ├── WorkspaceView.tsx
+│   │   │       ├── TargetGraphView.tsx
+│   │   │       ├── TargetRankingView.tsx
+│   │   │       ├── TargetDeepDiveView.tsx
+│   │   │       ├── CompoundScreeningView.tsx
+│   │   │       ├── EvidenceExplorerView.tsx
+│   │   │       ├── ReportView.tsx
+│   │   │       └── AuditTraceView.tsx
+│   │   ├── services/               # API client, graph transformer, and demo datasets
+│   │   ├── types/                  # Strict TypeScript interfaces
+│   │   └── App.tsx                 # Main application shell
+│   ├── package.json
+│   └── vite.config.ts
+│
+└── tests/                          # Automated test suite (125 tests)
     ├── conftest.py                 # Global pytest fixtures and sample records
     └── unit/                       # Unit and workflow regression tests
         ├── test_api.py
@@ -266,6 +296,7 @@ DrugDiscovery/
 ### Prerequisites
 
 - **Python**: Version `3.10` or higher (verified up to `3.14`)
+- **Node.js**: Version `18` or higher (for frontend development)
 - **Git**: Installed and configured on your path
 - **Network**: Outbound HTTPS access to NCBI, Open Targets, and ChEMBL (for live mode; offline testing runs without network access)
 
@@ -290,12 +321,63 @@ source .venv/bin/activate
 
 ### Dependency Installation
 
-Install the package in editable mode with development dependencies:
+Install the Python package in editable mode with development dependencies:
 
 ```bash
 pip install --upgrade pip
 pip install -e ".[dev]"
 ```
+
+To install and build the React frontend:
+
+```bash
+cd frontend
+npm install
+npm run build
+cd ..
+```
+
+---
+
+## Running the Platform
+
+### Option 1: Primary React Biomedical Workstation (Recommended)
+
+#### Unified Production / Single-Server Mode
+When `frontend/dist` is built, FastAPI automatically serves the complete React application:
+
+```bash
+uvicorn src.api.app:app --port 8000 --host 0.0.0.0 --reload
+```
+
+- Open your browser at: **[http://localhost:8000](http://localhost:8000)**
+- REST API and Swagger docs available at: **[http://localhost:8000/docs](http://localhost:8000/docs)**
+
+#### Active Frontend Development Mode
+Run the backend and Vite dev server simultaneously:
+
+1. **Terminal 1 (FastAPI Backend)**:
+   ```bash
+   uvicorn src.api.app:app --port 8000 --reload
+   ```
+
+2. **Terminal 2 (Vite Frontend)**:
+   ```bash
+   cd frontend
+   npm run dev
+   ```
+   - Open Vite dev server at: **[http://localhost:5173](http://localhost:5173)** (automatically proxies `/api` calls to port 8000).
+
+### Option 2: Legacy Streamlit Dashboard (Fallback)
+
+The Streamlit dashboard remains available for legacy rollback:
+
+```bash
+streamlit run app.py
+```
+
+- Access the Streamlit dashboard at: [http://localhost:8501](http://localhost:8501)
+
 
 ### Environment Configuration
 
@@ -327,34 +409,6 @@ Review and adjust variables in `.env`:
 > The platform runs out-of-the-box in `mock` LLM mode with offline fixtures, requiring **zero paid API keys** to execute full investigations and run tests.
 
 ---
-
-## Running the Platform
-
-The platform can be operated via the interactive Streamlit dashboard, through the FastAPI REST API, or programmatically via Python.
-
-### Interactive Streamlit Dashboard
-
-To launch the full interactive web application:
-
-```bash
-streamlit run app.py
-```
-
-- Access the dashboard in your web browser at: [http://localhost:8501](http://localhost:8501)
-- The Streamlit interface can run independently; it invokes the LangGraph workflow directly in-process.
-
-### FastAPI REST Service
-
-To run the dedicated headless backend service:
-
-```bash
-uvicorn src.api.app:app --port 8000 --host 0.0.0.0 --reload
-```
-
-- API Documentation (Swagger UI): [http://localhost:8000/docs](http://localhost:8000/docs)
-- Health Check Endpoint: [http://localhost:8000/api/health](http://localhost:8000/api/health)
-- Synchronous Investigation Endpoint: `POST /api/investigate`
-- Report Generation Endpoint: `POST /api/report`
 
 ---
 
