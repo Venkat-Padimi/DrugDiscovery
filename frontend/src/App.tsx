@@ -107,19 +107,39 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-cyan-500 selection:text-slate-950">
-      {/* Platform Navigation */}
-      <Navbar
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        sessionId={state.session_id}
-        diseaseName={state.disease_name}
-        isBackendHealthy={isBackendHealthy}
-        onLoadDemo={handleLoadDemo}
-      />
+    <div className="relative min-h-screen bg-[#060813] text-slate-100 flex flex-col font-sans selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden">
+      {/* Faint Professional Bubbly Gradient Mesh & Animated Orbs */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+        {/* Soft atmospheric base gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(6,182,212,0.14),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_90%_40%,rgba(99,102,241,0.12),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_10%_80%,rgba(16,185,129,0.08),transparent_70%)]" />
 
-      {/* Main Container */}
-      <main className="flex-1 mx-auto w-full max-w-7xl px-4 sm:px-6 py-6">
+        {/* Floating animated bubbly gradient orbs */}
+        <div className="bubble-orb bubble-1 -top-24 -left-20 w-[36rem] h-[36rem] bg-gradient-to-br from-cyan-500/18 via-teal-500/12 to-transparent" />
+        <div className="bubble-orb bubble-2 top-1/4 -right-24 w-[38rem] h-[38rem] bg-gradient-to-bl from-indigo-500/16 via-purple-500/10 to-transparent" />
+        <div className="bubble-orb bubble-3 top-1/2 left-1/4 w-[44rem] h-[44rem] bg-gradient-to-tr from-sky-500/12 via-cyan-600/8 to-transparent" />
+        <div className="bubble-orb bubble-1 bottom-10 -right-20 w-[34rem] h-[34rem] bg-gradient-to-tl from-purple-600/14 via-indigo-600/8 to-transparent" />
+        <div className="bubble-orb bubble-2 -bottom-24 left-10 w-[38rem] h-[38rem] bg-gradient-to-tr from-emerald-500/10 via-teal-600/12 to-transparent" />
+        <div className="bubble-orb bubble-3 top-2/3 right-1/4 w-[30rem] h-[30rem] bg-gradient-to-br from-blue-500/10 via-cyan-500/8 to-transparent" />
+
+        {/* Delicate technical micro-grid overlay for biomedical instrument precision */}
+        <div className="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:36px_36px] opacity-20" />
+      </div>
+
+      <div className="relative z-10 flex flex-col min-h-screen">
+        {/* Platform Navigation */}
+        <Navbar
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          sessionId={state.session_id}
+          diseaseName={state.disease_name}
+          isBackendHealthy={isBackendHealthy}
+          onLoadDemo={handleLoadDemo}
+        />
+
+        {/* Main Container */}
+        <main className="flex-1 mx-auto w-full max-w-7xl px-4 sm:px-6 py-6">
         {errorMessage && (
           <div className="mb-6 rounded-xl border border-rose-800 bg-rose-950/50 p-4 text-xs text-rose-200 flex items-start gap-3 backdrop-blur-md">
             <AlertCircle className="h-5 w-5 text-rose-400 flex-shrink-0 mt-0.5" />
@@ -194,6 +214,7 @@ export function App() {
           </div>
         </div>
       </footer>
+      </div>
     </div>
   );
 }

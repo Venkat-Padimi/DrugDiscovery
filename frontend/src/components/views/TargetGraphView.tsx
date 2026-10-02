@@ -82,7 +82,7 @@ export const TargetGraphView: React.FC<TargetGraphViewProps> = ({ graphData, onS
   };
 
   return (
-    <div className="relative h-[calc(100vh-180px)] min-h-[640px] w-full rounded-2xl border border-slate-800 bg-slate-950 overflow-hidden shadow-2xl">
+    <div className="relative h-[calc(100vh-180px)] min-h-[640px] w-full rounded-2xl border border-slate-800/80 bg-slate-950/40 backdrop-blur-xl overflow-hidden shadow-2xl">
       {/* Top Floating Controls Bar */}
       <div className="absolute top-4 left-4 z-10 flex flex-wrap items-center gap-2 rounded-xl border border-slate-800 bg-slate-900/90 p-2 backdrop-blur-md">
         <div className="flex items-center gap-1.5 px-2 text-xs font-semibold text-slate-300">
@@ -138,9 +138,9 @@ export const TargetGraphView: React.FC<TargetGraphViewProps> = ({ graphData, onS
         minZoom={0.2}
         maxZoom={2.0}
         attributionPosition="bottom-left"
-        className="bg-slate-950"
+        className="bg-transparent"
       >
-        <Background variant={BackgroundVariant.Dots} gap={16} size={1} color="#1e293b" />
+        <Background variant={BackgroundVariant.Dots} gap={20} size={1.2} color="#334155" />
         <Controls className="!border-slate-800 !bg-slate-900 !text-slate-200" />
         <MiniMap
           nodeColor={(n) => {

@@ -51,7 +51,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/90 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-slate-800/80 bg-slate-950/70 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         {/* Brand identity */}
         <div className="flex items-center gap-3">
@@ -105,7 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {/* Navigation Tabs Bar */}
-      <div className="border-t border-slate-800/80 bg-slate-950/70 px-4 sm:px-6">
+      <div className="border-t border-slate-800/60 bg-slate-950/50 backdrop-blur-lg px-4 sm:px-6">
         <div className="mx-auto flex max-w-7xl items-center gap-1 overflow-x-auto py-1 scrollbar-none">
           {tabs.map((tab) => {
             const Icon = tab.icon;

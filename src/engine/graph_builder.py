@@ -52,7 +52,7 @@ def build_discovery_graph(state: Dict[str, Any], max_targets: int = 6) -> Dict[s
     })
 
     top_targets = rankings[:max_targets]
-    spacing_x = 260
+    spacing_x = 320
     base_x = max(50, 500 - (len(top_targets) * spacing_x) // 2)
 
     evidence_records = state.get("evidence_records", [])
@@ -95,7 +95,7 @@ def build_discovery_graph(state: Dict[str, Any], max_targets: int = 6) -> Dict[s
             "data": {"relationship": "ASSOCIATED_WITH"},
         })
 
-        # 3. Evidence Nodes (top 2 supporting/contradicting items)
+        # 3. Evidence Nodes (top 2 supporting/contradicting items, spaced comfortably)
         target_ev = [ev for ev in evidence_records if ev.get("target_symbol") == sym][:2]
         for e_idx, ev in enumerate(target_ev):
             ev_id = f"node-ev-{sym}-{e_idx}"
@@ -107,7 +107,7 @@ def build_discovery_graph(state: Dict[str, Any], max_targets: int = 6) -> Dict[s
             nodes.append({
                 "id": ev_id,
                 "type": "evidenceNode",
-                "position": {"x": target_x - 70 + (e_idx * 140), "y": target_y + 160},
+                "position": {"x": target_x - 75 + (e_idx * 150), "y": target_y + 180},
                 "data": {
                     "target_symbol": sym,
                     "evidence_type": ev.get("evidence_type", "literature_cooccurrence"),
@@ -133,7 +133,7 @@ def build_discovery_graph(state: Dict[str, Any], max_targets: int = 6) -> Dict[s
             nodes.append({
                 "id": drug_node_id,
                 "type": "druggabilityNode",
-                "position": {"x": target_x + 50, "y": target_y + 300},
+                "position": {"x": target_x + 40, "y": target_y + 360},
                 "data": {
                     "target_symbol": sym,
                     "tractability_score": round(drug_info.get("overall_tractability_score", 0.0), 1),
@@ -159,7 +159,7 @@ def build_discovery_graph(state: Dict[str, Any], max_targets: int = 6) -> Dict[s
             nodes.append({
                 "id": compound_node_id,
                 "type": "compoundNode",
-                "position": {"x": target_x - 60, "y": target_y + 420},
+                "position": {"x": target_x - 60, "y": target_y + 490},
                 "data": {
                     "target_symbol": sym,
                     "compound_id": top_chembl.get("compound_id"),
@@ -184,7 +184,7 @@ def build_discovery_graph(state: Dict[str, Any], max_targets: int = 6) -> Dict[s
             nodes.append({
                 "id": compound_node_id,
                 "type": "compoundNode",
-                "position": {"x": target_x - 60, "y": target_y + 420},
+                "position": {"x": target_x - 60, "y": target_y + 490},
                 "data": {
                     "target_symbol": sym,
                     "compound_id": top_sim.get("compound_id"),

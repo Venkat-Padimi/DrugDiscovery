@@ -25,7 +25,7 @@ export function stateToDiscoveryGraph(state: ResearchGraphState, maxTargets = 6)
   });
 
   const topTargets = rankings.slice(0, maxTargets);
-  const spacingX = 260;
+  const spacingX = 320;
   const baseX = Math.max(50, 500 - (topTargets.length * spacingX) / 2);
 
   const evidenceRecords = state.evidence_records || [];
@@ -68,7 +68,7 @@ export function stateToDiscoveryGraph(state: ResearchGraphState, maxTargets = 6)
       data: { relationship: 'ASSOCIATED_WITH' },
     });
 
-    // Evidence Nodes
+    // Evidence Nodes (spaced so they never overlap tractability or adjacent columns)
     const targetEv = evidenceRecords.filter((ev) => ev.target_symbol === sym).slice(0, 2);
     targetEv.forEach((ev, eIdx) => {
       const evId = `node-ev-${sym}-${eIdx}`;
@@ -79,7 +79,7 @@ export function stateToDiscoveryGraph(state: ResearchGraphState, maxTargets = 6)
       nodes.push({
         id: evId,
         type: 'evidenceNode',
-        position: { x: targetX - 70 + eIdx * 140, y: targetY + 160 },
+        position: { x: targetX - 75 + eIdx * 150, y: targetY + 180 },
         data: {
           target_symbol: sym,
           evidence_type: ev.evidence_type,
@@ -106,7 +106,7 @@ export function stateToDiscoveryGraph(state: ResearchGraphState, maxTargets = 6)
       nodes.push({
         id: drugNodeId,
         type: 'druggabilityNode',
-        position: { x: targetX + 50, y: targetY + 300 },
+        position: { x: targetX + 40, y: targetY + 360 },
         data: {
           target_symbol: sym,
           tractability_score: drugInfo.overall_tractability_score,
@@ -133,7 +133,7 @@ export function stateToDiscoveryGraph(state: ResearchGraphState, maxTargets = 6)
       nodes.push({
         id: compId,
         type: 'compoundNode',
-        position: { x: targetX - 60, y: targetY + 420 },
+        position: { x: targetX - 60, y: targetY + 490 },
         data: {
           target_symbol: sym,
           compound_id: topChembl.compound_id,
@@ -157,7 +157,7 @@ export function stateToDiscoveryGraph(state: ResearchGraphState, maxTargets = 6)
       nodes.push({
         id: compId,
         type: 'compoundNode',
-        position: { x: targetX - 60, y: targetY + 420 },
+        position: { x: targetX - 60, y: targetY + 490 },
         data: {
           target_symbol: sym,
           compound_id: topSim.compound_id,
